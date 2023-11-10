@@ -16,15 +16,18 @@ const auto = {
   modelo: 'A1',
   //metodo
   encendido: function(){
-    document.write(`<p>...Auto encendido</p>`)
+    document.write(`<p>...Auto encendido 🏎️💨</p>`)
   },
   apagado: function(){
-    document.write(`<p>Auto apagado...</p>`)
+    document.write(`<p>Auto apagado...🏁🏎️</p>`)
   },
 }
 
-console.log(auto.encendido)
-document.write(`El Auto  ${auto.marca} , ${auto.color} modelo ${auto.modelo}`)
-console.log(auto.apagado)
+console.log(auto.encendido);
+document.write(`El Auto  ${auto.marca} , ${auto.color} modelo ${auto.modelo}, se encendera`);
+auto.encendido();
+document.write(`El Auto  ${auto.marca} , ${auto.color} modelo ${auto.modelo}, se apagará`);
+console.log(auto.apagado);
+auto.apagado();
 
 
