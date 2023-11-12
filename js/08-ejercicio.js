@@ -19,6 +19,8 @@ let nico = new Persona("Nico",30,"Profesor")
 
 nico.saludar()
 nico.despedirse()
+Persona.color = "rojo";
+console.log(Persona.color)
 
 //nuevos obejto con extension de la clase persona
 class Deporte extends Persona{
@@ -36,6 +38,7 @@ florencia.saludar();
 florencia.despedirse()
 florencia.tipoDeporte()
 
+
 ////nuevos obejto con extension de la clase persona
 class Idioma extends Persona {
   constructor(nombre,edad,profesion, deporte,idioma){
@@ -52,6 +55,7 @@ let lucas = new Idioma("Lucas",30, "Arquitecto","Handball","ingles")
 lucas.saludar()
 lucas.tipoIdioma()
 lucas.despedirse()
-
+Idioma.tipodeIdioma = "Español"
+console.log(Idioma.tipodeIdioma)
   
 
