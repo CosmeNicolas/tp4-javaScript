@@ -32,16 +32,11 @@ class Cuenta {
     document.write(`<p><strong>Su nuevo saldo es $${Cuenta.saldo = Cuenta.saldo - extraer}
     </strong></p>`)
   } 
-  informarCueta(){
-    document.write(`<p><strong>Su estado de cuenta actual es  $${Cuenta.saldo = Cuenta.saldo }
-    </strong></p>`)
-  }
 }
 
 let titular = new Cuenta(prompt('Ingrese su Nombre para Crear su Cuenta'),0)
 titular.nuevoUsuario();
 titular.ingresarDinero();
 titular.extraerDinero();
-titular.informarCueta();
 
 
