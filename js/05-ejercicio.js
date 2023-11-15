@@ -15,12 +15,12 @@ generaDNI(): genera un número aleatorio de 8 cifras.
 class Persona {
   constructor(nombre, edad, dni, sexo, peso , altura, anioNacimiento){
     this.nombre = nombre,
-    this.edad = edad, 
-    this.dni = dni,
+    this.edad = parseInt(Math.random() * 99), 
+    this.dni = parseInt(Math.random() * 99999999),
     this.sexo = sexo,
     this.peso = peso,
     this.altura = altura,
-    this.anioNacimiento = anioNacimiento
+    this.anioNacimiento = parseInt((Math.random()*1900) + 1000)
   }
   esMayorDeEdad(){
     if(this.edad >=18){
@@ -45,7 +45,7 @@ class Persona {
   }   
 }
 
-class GeneracioPersona extends Persona {
+class GeneracionPersona extends Persona {
   constructor(nombre, edad, dni, sexo, peso, altura, anioNacimiento, generacion, rasgo) {
     super(nombre, edad, dni, sexo, peso, altura, anioNacimiento);
     this.generacion = generacion,
@@ -83,34 +83,27 @@ class GeneracioPersona extends Persona {
       <li>Rasgo caracteristico: "Irreverencia" </li>
       </ul>`)
     } else {
-      document.write(`<p>Esta Persona todavia no esta definida en su generacion</p>`)
+      document.write('<p>Esta persona por su año de naciemiento esta en otra generación</p>')
     }
   }
 
-}
-
-class NuevoDni extends GeneracioPersona {
-  constructor(nombre, edad, dni, sexo, peso, altura, anioNacimiento, generacion, rasgo, nuevoDNi){
-    super(nombre, edad, dni, sexo, peso, altura, anioNacimiento, generacion, rasgo)
-    this.nuevoDNi = nuevoDNi
-  }
-   generarDni(){
-   let numero = parseInt((Math.random() * 9999999))
-    console.log(numero = this.nuevoDNi)
+  generarDni(){
+   document.write(`<p>El Dni generado es : ${this.dni}</p>`)
   } 
-}
+ }
 
 
 
 
 
-const florencia = new GeneracioPersona("Lucas",30,21336954,"Masculino",70, 1.70,1993)
 
-florencia.mostrarDatos()
-florencia.esMayorDeEdad()
-florencia.mostrarGeneracion()
-florencia.generarDni()
 
+const lucas = new GeneracionPersona("Lucas",30,'',"Masculino",70, 1.70,1950)
+
+lucas.mostrarDatos()
+lucas.esMayorDeEdad()
+lucas.mostrarGeneracion() 
+lucas.generarDni()
 
 
 
