@@ -24,21 +24,37 @@ class Contacto {
     this.nombre = nombre,
     this.telefono = telefono
   }
-  aniadirContacto(Contacto){
-    this.nombre = prompt('ingrese nombre y numero de telefono');
+
+  aniadirContacto(Contacto) {
+    document.write(`<h1>Agenda</h1>`)
+    this.nombre = prompt('ingrese nombre de contacto');
     this.telefono = parseInt(prompt('Ingrese su numero de telefono'))
-    document.write(`<h1>Agenda</h1>
-  <ul>
-  <li>Nombre de Contacto: ${this.nombre}</li>
-  <li>Nro de Contacto: ${this.telefono}</li>
-  </ul>`)
   }
-}
+  listaDeContacto(){
+   // do {
+      document.write(`
+      <ul>
+      <li>Nombre de Contacto: ${this.nombre}</li>
+      <li>Nro de Contacto: ${this.telefono}</li>
+      </ul>`)
+   // } while (confirm('Desea Agregar un nuevo contacto?'));
+  }
+  }
 
-const contacto = new Contacto()
 
-contacto.aniadirContacto()
-console.log(contacto)
+
+const contacto1 = new Contacto()
+const contacto2 = new Contacto()
+
+
+contacto1.aniadirContacto()
+contacto1.listaDeContacto()
+contacto2.aniadirContacto()
+contacto2.listaDeContacto()
+
+
+console.log(contacto1)
+console.log(contacto2)
 
 
 
@@ -49,6 +65,17 @@ switch (menu) {
   case '1':
   case 'Añadir contacto':
     console.log('selecciono la opcion uno')
+
+   aniadirContacto(Contacto) {
+    document.write(`<h1>Agenda</h1>`)
+    this.nombre = prompt('ingrese nombre de contacto');
+    this.telefono = parseInt(prompt('Ingrese su numero de telefono'))
+    document.write(`
+    <ul>
+    <li>Nombre de Contacto: ${this.nombre}</li>
+    <li>Nro de Contacto: ${this.telefono}</li>
+    </ul>`)
+  }
     break;
 
   default:
