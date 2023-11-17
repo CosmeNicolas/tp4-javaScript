@@ -21,6 +21,7 @@ Crea un menú con opciones que serán seleccionadas por el usuario usando un pro
 
 
 class Contacto {
+   // #telefono;
     constructor(nombre,telefono){
         this.nombre = nombre,
         this.telefono = telefono
@@ -33,14 +34,59 @@ class Contacto {
         document.write(`<p>Nombre de Contacto: ${this.nombre}</p>`)
         document.write(`<p>Numero de Contacto: ${this.telefono}</p>`)
     }
+    existeContacto(){
+        if(this.nombre == this.nombre){
+            alert('El contacto existe')
+        }else{
+            alert('El contacto no existe')
+        }
+    }
+    
+  /*   get contactoCompleto(){
+        return this.nombre + " " + this.telefono
+    }
+    set cambiarNumero(nuevoNumero){
+        this.#telefono = nuevoNumero;
+    } */
 }
 
-const contacto1 = new Contacto('','')
+/* class Agenda extends Contacto {
+    constructor(nombre,telefono,agenda){
+        super(nombre,telefono);
+        this.agenda = nombre +' '+  telefono
+    }
+} agendaContactos(){
+    do {
+        
+    } while (confirm('Desea Agregar un contacto?'));
+}
+
+
+ */
+
+
+//const [contacto1,contacto2,contacto3,contacto4,contacto5,contacto6,contacto7,contacto8,contacto9,contacto10] = new Contacto('','')
+
+//console.log(contactos)
+ 
+const contacto1 = new Contacto('','');
+const contacto2 = new Contacto('','');
+/* const contacto3  = new Contacto('','')
+const contacto4  = new Contacto('','')
+const contacto5  = new Contacto('','')
+const contacto6  = new Contacto('','')
+const contacto7  = new Contacto('','')
+const contacto8  = new Contacto('','')
+const contacto9  = new Contacto('','')
+const contacto10 = new Contacto('','')  */
 
 contacto1.aniadirContacto()
 contacto1.listarContacto()
+contacto2.aniadirContacto()
+contacto2.listarContacto()
 console.log(contacto1)
-
+console.log(contacto2)
+contacto1.existeContacto()
 
 
 
