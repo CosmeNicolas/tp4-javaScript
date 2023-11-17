@@ -8,6 +8,7 @@ Los métodos de la agenda serán los siguientes:
 
 aniadirContacto(Contacto): Añade un contacto a la agenda, sino la agenda no puede almacenar más contactos indicar por pantalla.
 existeContacto(Contacto): indica si el contacto pasado existe o no.
+
 listarContactos(): Lista toda la agenda
 buscarContacto(nombre): busca un contacto por su nombre y muestra su teléfono.
 eliminarContacto(Contacto c): elimina el contacto de la agenda, indica si se ha eliminado o no por pantalla
@@ -24,7 +25,21 @@ class Contacto {
         this.nombre = nombre,
         this.telefono = telefono
     }
+    aniadirContacto(){
+        this.nombre = prompt('ingrese el nombre del contacto');
+        this.telefono = parseInt(prompt('Ingrese el numero del contacto'));
+    }
+    listarContacto(){
+        document.write(`<p>Nombre de Contacto: ${this.nombre}</p>`)
+        document.write(`<p>Numero de Contacto: ${this.telefono}</p>`)
+    }
 }
+
+const contacto1 = new Contacto('','')
+
+contacto1.aniadirContacto()
+contacto1.listarContacto()
+console.log(contacto1)
 
 
 
