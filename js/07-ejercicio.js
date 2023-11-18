@@ -17,11 +17,23 @@ huecosLibres(): indica cuántos contactos más podemos ingresar.
 
 Crea un menú con opciones que serán seleccionadas por el usuario usando un prompt, las salidas de las operaciones seleccionadas por el usuario se pueden mostrar en pantalla y  por consola.
 
+Metodos()
+1-aniadirContacto(Contacto): Añade un contacto a la agenda, sino la agenda no puede almacenar más contactos indicar por pantalla.
+2-existeContacto(Contacto): indica si el contacto pasado existe o no.
+
+3-listarContactos(): Lista toda la agenda.
+4-buscarContacto(nombre): busca un contacto por su nombre y muestra su teléfono.
+5-eliminarContacto(Contacto c): elimina el contacto de la agenda, indica si se ha eliminado o no por pantalla
+6-agendaLlena(): indica si la agenda está llena.
+7-huecosLibres(): indica cuántos contactos más podemos ingresar.
+
+
+
  */
 
 
 class Contacto {
-   // #telefono;
+   
     constructor(nombre,telefono){
         this.nombre = nombre,
         this.telefono = telefono
@@ -34,43 +46,14 @@ class Contacto {
         document.write(`<p>Nombre de Contacto: ${this.nombre}</p>`)
         document.write(`<p>Numero de Contacto: ${this.telefono}</p>`)
     }
-    existeContacto(){
-        if(this.nombre == this.nombre){
-            alert('El contacto existe')
-        }else{
-            alert('El contacto no existe')
-        }
-    }
-    
-  /*   get contactoCompleto(){
-        return this.nombre + " " + this.telefono
-    }
-    set cambiarNumero(nuevoNumero){
-        this.#telefono = nuevoNumero;
-    } */
-}
-
-/* class Agenda extends Contacto {
-    constructor(nombre,telefono,agenda){
-        super(nombre,telefono);
-        this.agenda = nombre +' '+  telefono
-    }
-} agendaContactos(){
-    do {
-        
-    } while (confirm('Desea Agregar un contacto?'));
+   
+ 
 }
 
 
- */
-
-
-//const [contacto1,contacto2,contacto3,contacto4,contacto5,contacto6,contacto7,contacto8,contacto9,contacto10] = new Contacto('','')
-
-//console.log(contactos)
  
 const contacto1 = new Contacto('','');
-const contacto2 = new Contacto('','');
+//const contacto2 = new Contacto('','');
 /* const contacto3  = new Contacto('','')
 const contacto4  = new Contacto('','')
 const contacto5  = new Contacto('','')
@@ -82,11 +65,11 @@ const contacto10 = new Contacto('','')  */
 
 contacto1.aniadirContacto()
 contacto1.listarContacto()
-contacto2.aniadirContacto()
-contacto2.listarContacto()
+//contacto2.aniadirContacto()
+//contacto2.listarContacto()
 console.log(contacto1)
-console.log(contacto2)
-contacto1.existeContacto()
+//console.log(contacto2)
+
 
 
 
