@@ -69,7 +69,7 @@ contacto1.listarContacto()
 //contacto2.listarContacto()
 console.log(contacto1)
 //console.log(contacto2)
-
+contacto1.existeContacto()
 
 
 
