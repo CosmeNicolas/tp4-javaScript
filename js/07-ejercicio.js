@@ -28,61 +28,130 @@ Metodos()
 7-huecosLibres(): indica cuántos contactos más podemos ingresar.
 
 
-
  */
 
 
+// Definición de la clase Contacto
 class Contacto {
-   
-    constructor(nombre,telefono){
-        this.nombre = nombre,
-        this.telefono = telefono
+    constructor(nombre,telefono) {
+      this.nombre = nombre;
+      this.telefono = telefono;
     }
-    aniadirContacto(){
-        this.nombre = prompt('ingrese el nombre del contacto');
-        this.telefono = parseInt(prompt('Ingrese el numero del contacto'));
+  }
+  
+ class Agenda {
+    constructor(espacios = 10){
+        this.contactos = [],
+        this.espacios = espacios;
     }
+
+    aniadirContacto(contacto){
+        if(this.contactos.length < this.espacios) {
+            this.contactos.push(contacto);
+            alert("Contacto añadido correctamente.");
+          } else {
+            alert("La agenda está llena. No se puede añadir más contactos.");
+          }
+    }
+
+    existeContacto(contacto){
+        for (let i = 0; i < this.contactos.length; i++) {
+           if(this.contactos[i].nombre === contacto.nombre){
+            return true;
+           }
+        }
+        return false
+    }
+
     listarContacto(){
-        document.write(`<p>Nombre de Contacto: ${this.nombre}</p>`)
-        document.write(`<p>Numero de Contacto: ${this.telefono}</p>`)
+        document.write(`<h1>Lista de Contactos</h1>`)
+        for (let i = 0; i < this.contactos.length; i++) {
+           document.write(`<ul>
+           <li>${this.contactos[i].nombre} ${this.contactos[i].telefono}</li>
+           </ul>`)
+        }
     }
-   
- 
+
+    buscarContacto(nombre){
+        for (let i = 0; i < this.contactos.length; i++) {
+            if(this.contactos[i].nombre === nombre){
+                document.write(`Este es el contacto Buscado ${nombre}`)
+                document.write(`Este es el contacto Buscado ${this.contactos[i].telefono}`)
+                return;
+            }
+        }
+        alert(`no se encontro ningun contacto con el nombre ${nombre}`)    
+    }
+
+    eliminarContacto(contacto){
+        for (let i = 0; i < this.contactos.length; i++) {
+            if(this.contactos[i].nombre === contacto.nombre){
+                this.contactos.splice(i,1)
+                alert('contacto eliminado correctamente');
+                return
+            }
+        }
+        alert('No se encontro ningun contacto para eliminar')
+    }
+
+    agendaLlena(){
+        return this.contactos.length === this.espacios;
+    }
+
+    espaciosLibres(){
+        return this.espacios - this.contactos.length;
+    }
+    
+}
+//creo agenda nueva 
+const agenda = new Agenda()
+
+do {
+
+const opciones = prompt(`Elije una Opción:
+1-Agregar contacto
+2-Buscarcontacto
+3-Eliminar Contacto
+4-Ver Contactos
+5-Ver si la agenda esta llena
+6-Ver espacios libres
+`);
+
+switch (opciones) {
+    case "1":
+        const nombre = prompt('Ingrese el nombre del contacto');
+        const telefono = parseInt(prompt('Ingrese el numero de telefono'));
+        const nuevoContacto = new Contacto(nombre, telefono);
+        agenda.aniadirContacto(nuevoContacto)
+        
+
+        break; 
+    case "2":
+        const buscarNombre = prompt('ingrese el nombre de contacto que quiere buscar')
+        agenda.buscarContacto(buscarNombre)
+        break;
+
+        case "3":
+        const nombreEliminar = prompt('Ingrese el nombre del contacot que desea eliminar')
+        const contactoEliminar = new Contacto(nombreEliminar,'');
+        agenda.eliminarContacto(contactoEliminar)
+        break;
+
+        case "4":
+            agenda.listarContacto();
+            break;
+        case "5":
+            console.log(`Agenda llena ${agenda.agendaLlena()}`);
+            alert(`Agenda llena ${agenda.agendaLlena()}`);
+            break;
+            case "6":
+                console.log(`Espacios libres en la agenda  ${agenda.espaciosLibres()}`);
+                alert(`Espacios libres en la agenda  ${agenda.espaciosLibres()}`);
+            break;
+            
+    default:
+        alert('Accion invalida, introduzca una opcion valida')
+        break;
 }
 
-
- 
-const contacto1 = new Contacto('','');
-//const contacto2 = new Contacto('','');
-/* const contacto3  = new Contacto('','')
-const contacto4  = new Contacto('','')
-const contacto5  = new Contacto('','')
-const contacto6  = new Contacto('','')
-const contacto7  = new Contacto('','')
-const contacto8  = new Contacto('','')
-const contacto9  = new Contacto('','')
-const contacto10 = new Contacto('','')  */
-
-contacto1.aniadirContacto()
-contacto1.listarContacto()
-//contacto2.aniadirContacto()
-//contacto2.listarContacto()
-console.log(contacto1)
-//console.log(contacto2)
-contacto1.existeContacto()
-
-
-
-
-//const persona = prompt('Ingrese el nombre de contacto')
-/* const telefonoPersona = parseInt(prompt('Ingrese numero de telefono'))
-console.log(telefonoPersona) */
-
-/* switch (key) {
-    case value:
-        
-        break;
-
-    default:
-        break;
-} */
+} while (confirm('Desea realizar otra accion?'));
