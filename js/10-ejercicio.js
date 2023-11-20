@@ -13,6 +13,8 @@ class Aeropuerto {
     }
     agregarAvion(avion){
         this.listaAviones.push(avion)
+        return alert('Avion se agrego correctamente')
+       
     }
     buscaravion(avion){
         for(let i = 0; i < this.listaAviones.length ; i++){
@@ -34,4 +36,12 @@ class Aviones extends Aeropuerto{
         this.destino = destino,
         this.listapasajeros =  []
     }
+    listarAviones(){
+        document.write(<></>)
+    }
 }
+
+const airBus = new Aviones("AeropuertoTuc","avion1",300,"Brasil")
+
+airBus.agregarAvion()
+console.log(airBus)
