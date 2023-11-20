@@ -36,12 +36,23 @@ class Aviones extends Aeropuerto{
         this.destino = destino,
         this.listapasajeros =  []
     }
-    listarAviones(){
-        document.write(<></>)
+    listarAviones(nombreAvion){
+        document.write(`<h1>Aviones </h1>`)
+        for(let i = 0; i < this.listaAviones.length; i++){
+            if(this.listaAviones[i] === nombreAvion){
+                document.write(`<ul>
+                <li>Nombre del Avion: ${this.listaAviones[i].nombreAvion}</li>
+                <li>Capacidad: ${this.listaAviones[i].capacidad}</li>
+                <li>Destino: ${this.listaAviones[i].destino}</li>
+                </ul>`)
+            }
+
+        }
+       
     }
 }
 
-const airBus = new Aviones("AeropuertoTuc","avion1",300,"Brasil")
+const avion1 = new Aviones("AeropuertoTuc","avion-1234",300,"Brasil")
 
-airBus.agregarAvion()
-console.log(airBus)
+avion1.agregarAvion(avion1)
+avion1.listarAviones(avion1);
