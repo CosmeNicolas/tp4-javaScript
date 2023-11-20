@@ -26,12 +26,12 @@ class Aeropuerto {
 }
 
 class Aviones extends Aeropuerto{
-    constructor(nombreAeropuerto,nombreAvion,capacidad,destino,listaPasajeros)
+    constructor(nombreAeropuerto,nombreAvion,capacidad,destino)
     {
         super(nombreAeropuerto);
         this.nombreAvion = nombreAvion,
         this.capacidad = capacidad,
         this.destino = destino,
-        this.listapasajeros =  [listaPasajeros]
+        this.listapasajeros =  []
     }
 }
