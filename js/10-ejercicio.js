@@ -14,4 +14,24 @@ class Aeropuerto {
     agregarAvion(avion){
         this.listaAviones.push(avion)
     }
+    buscaravion(avion){
+        for(let i = 0; i < this.listaAviones.length ; i++){
+            if(this.listaAviones[i] === nombreAvion){
+                document.write(`${this.listaAviones[i].nombre}`)
+            } else {
+                alert('No se Encontro el avion')
+            }
+        }
+    }
+}
+
+class Aviones extends Aeropuerto{
+    constructor(nombreAeropuerto,nombreAvion,capacidad,destino,listaPasajeros)
+    {
+        super(nombreAeropuerto);
+        this.nombreAvion = nombreAvion,
+        this.capacidad = capacidad,
+        this.destino = destino,
+        this.listapasajeros =  [listaPasajeros]
+    }
 }
