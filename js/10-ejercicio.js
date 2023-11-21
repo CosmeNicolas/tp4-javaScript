@@ -6,59 +6,60 @@ Crear un objeto de tipo aeropuerto llamado "Aeropuerto Internacional", crear 3 o
 
 
 
-class Avion{
-    constructor(nombreAvion,capacidad,destino)
-    {
+class Avion {
+    constructor(nombreAvion, capacidad, destino) {
         this.nombreAvion = nombreAvion,
-        this.capacidad = capacidad,
-        this.destino = destino,
-        this.listapasajeros =  []
+            this.capacidad = capacidad,
+            this.destino = destino,
+            this.listapasajeros = []
     }
 
-    AbordarAvion(pasajero){
-        if(this.listapasajeros.length < this.capacidad){
+    AbordarAvion(pasajero) {
+        if (this.listapasajeros.length < this.capacidad) {
             this.listapasajeros.push(pasajero);
-            console.log(`El ${pasajero} a subido al avion ${this.nombreAvion}`)
+            console.log(`El el pasajero ${pasajero} a subido al avion ${this.nombreAvion}`)
         } else {
-            console.log(`El avion ${this.nombreAvion} esta lleno`)
+            console.log(`El avion ${this.nombreAvion} esta lleno, el pasajer ${pasajero} no puede aboradar el avion`)
         }
     }
 
-   
+
 }
 
 class Aeropuerto {
-    constructor(nombreAeropuerto)
-    {
+    constructor(nombreAeropuerto) {
         this.nombreAeropuerto = nombreAeropuerto,
-        this.listaAviones = []
+            this.listaAviones = []
     }
-    agregarAvion(avion){
+    agregarAvion(avion) {
         this.listaAviones.push(avion)
         console.log(`EL avion ${avion.nombreAvion} se agrego al aeropuerto`)
     }
-    
-    buscarAvion(nombreAvion){
-        for(let i = 0; i < this.listaAviones.length ; i++){
-            if(this.listaAviones[i] === nombreAvion){
-                document.write(`El avion ${this.listaAviones[i].nombreAvion}esta en este aeropuerto`)
+    buscarAvion(nombreAvion) {
+        for (let i = 0; i < this.listaAviones.length; i++) {
+            if (this.listaAviones[i].nombreAvion === nombreAvion) {
+                document.write(`<p>El avion "${this.listaAviones[i].nombreAvion}" esta en este aeropuerto</p>`)
             } else {
-                alert('No se Encontro el avion')
+                console.log('No se Encontro el avion')
             }
         }
     }
 
-    listarAviones(){
-        document.write(`<h1>Aviones</h1>`)
-        for(let i = 0; i < this.listaAviones.length; i++){
-            
-                document.write(`<ul>
+
+    listarAviones() {
+        document.write(`
+        <h1>${this.nombreAeropuerto}🛩️</h1>
+        <h2>Aviones</h2>`)
+        
+        for (let i = 0; i < this.listaAviones.length; i++) {
+
+            document.write(`<ul>
                 <li>Nombre del Avion: ${this.listaAviones[i].nombreAvion}</li>
                 <li>Capacidad: ${this.listaAviones[i].capacidad} personas</li>
                 <li>Destino: ${this.listaAviones[i].destino}</li>
                 </ul>`)
-            
-        }       
+
+        }
     }
 }
 
@@ -66,9 +67,9 @@ class Aeropuerto {
 const aeropuertoInternacional = new Aeropuerto("Aeropuerto Internacional");
 
 //creamos los aviones
-const avion1 = new Avion("Fumigador",3,"Las Termas");
-const avion2 = new Avion("AirBus-23",2,"Londres");
-const avion3 = new Avion("AirFrance",5,"Francia")
+const avion1 = new Avion("Fumigador", 3, "Las Termas");
+const avion2 = new Avion("AirBus-23", 2, "Londres");
+const avion3 = new Avion("AirFrance", 5, "Francia")
 
 //agregar aviones al aeropuerto
 aeropuertoInternacional.agregarAvion(avion1);
@@ -79,4 +80,10 @@ aeropuertoInternacional.agregarAvion(avion3)
 aeropuertoInternacional.listarAviones()
 
 //buscarAvion
-aeropuertoInternacional.buscarAvion("AirBus-23")
+aeropuertoInternacional.buscarAvion('AirFrance')
+
+//abordar Avion 
+avion1.AbordarAvion("Nico")
+avion1.AbordarAvion("Pedro")
+avion1.AbordarAvion("Jaime")
+avion1.AbordarAvion("Pepe")
